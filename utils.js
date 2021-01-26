@@ -77,7 +77,7 @@ function renderPokeImage(pokeItem){
             setThreePokemon();
           
         } else {
-            window.location = '../result';
+            window.location = './result/index.html';
         }
     });
     return img;
