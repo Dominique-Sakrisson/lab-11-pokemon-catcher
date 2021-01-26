@@ -5,10 +5,10 @@ import {getPokeStats} from '../localstorage.js';
 const pokestats = getPokeStats();
 const table = document.getElementById('poke-list');
 
+addToTable();
+
 function addToTable(){
     const nameArray= [];
-    
-
     for(let i = 0; i< pokestats.length; i++){
         let tr = document.createElement('tr');
         const tdName = document.createElement('td');
@@ -21,13 +21,11 @@ function addToTable(){
         tdSeen.textContent = pokestats[i].seen;
         tr.append(tdName, tdCaught, tdSeen);
         tdSeen.classList.add('center');
+        tdCaught.classList.add('center');
 
         table.append(tr);
     }
-    console.log(nameArray);
 }
-addToTable();
-
 
 const clearButton = document.getElementById('clear-button');
 clearButton.addEventListener('click', () => {

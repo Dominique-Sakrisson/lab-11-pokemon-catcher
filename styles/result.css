@@ -5,3 +5,8 @@
 .center{
    text-align: center;
 }
+
+#clear-button {
+    width: 100px;
+    padding: 5px;
+}
