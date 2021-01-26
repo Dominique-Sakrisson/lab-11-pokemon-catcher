@@ -18,8 +18,6 @@ export function createRandomPoke(){
 let numOfTurns = 0;
 
 export function setThreePokemon(){
-    
-
     let poke1 = createRandomPoke();
     let poke2 = createRandomPoke();
     let poke3 = createRandomPoke();
@@ -29,13 +27,8 @@ export function setThreePokemon(){
         poke2 = createRandomPoke();
         poke3 = createRandomPoke();
     }
-
-    
-
     const list = document.getElementById('poke-list');
     const li = document.createElement('li');
-
-
     const pokeImg1 = renderPokeImage(poke1);
     const pokeImg2 = renderPokeImage(poke2);
     const pokeImg3 = renderPokeImage(poke3);
@@ -89,4 +82,3 @@ function renderPokeImage(pokeItem){
     });
     return img;
 }
-

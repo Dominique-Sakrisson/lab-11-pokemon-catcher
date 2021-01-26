@@ -4,11 +4,16 @@ import {getPokeStats} from '../localstorage.js';
 
 const pokestats = getPokeStats();
 const table = document.getElementById('poke-list');
+const link = document.getElementById('go-play');
 
+link.addEventListener('click', () =>{
+    localStorage.clear();
+});
 addToTable();
 
 function addToTable(){
     const nameArray= [];
+ 
     for(let i = 0; i< pokestats.length; i++){
         let tr = document.createElement('tr');
         const tdName = document.createElement('td');
@@ -22,9 +27,10 @@ function addToTable(){
         tr.append(tdName, tdCaught, tdSeen);
         tdSeen.classList.add('center');
         tdCaught.classList.add('center');
-
+        
         table.append(tr);
     }
+
 }
 
 const clearButton = document.getElementById('clear-button');
@@ -35,7 +41,7 @@ clearButton.addEventListener('click', () => {
 
 
 //commented out for this part of assignemnt
-/*
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -73,4 +79,4 @@ var myChart = new Chart(ctx, {
         }
     }
 });
- */
+ 

@@ -6,8 +6,9 @@ const PARTY = 'PARTY';
 const noParty = [];
 
 setThreePokemon();
-
+/*
 const gameBoard = document.querySelector('.container');
 const pokeImg1 = document.createElement('img');
 const pokeImg2 = document.createElement('img');
 const pokeImg3 = document.createElement('img');
+*/

@@ -4,18 +4,6 @@ import {findById} from './utils.js';
 const PARTY = 'PARTY';
 const emptyParty = [];
 
-/*
-const pokestats = [
-    {
-    _id: 2342,
-    seen: 0,
-    caught: 0,
-    },
-];
-*/
-//returns
-
-
 export function getPokeStats(){
     let stats = JSON.parse(localStorage.getItem(PARTY));
     if(!stats){
@@ -34,8 +22,7 @@ export function incrementSeen(id){
     const stats = getPokeStats();
     //is the id we passed already existant in local storage?
     const match = findById(id, stats);
-    
-//if this passes we've already seen it before
+    //if this passes we've already seen it before
     if(match) {
        
         match.seen++;
@@ -52,7 +39,6 @@ export function incrementSeen(id){
 
     setPokeStats(stats);
 }
-
 
 export function incrementCaught(id){
     const stats = getPokeStats();
