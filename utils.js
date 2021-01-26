@@ -18,7 +18,7 @@ export function createRandomPoke(){
 let numOfTurns = 0;
 
 export function setThreePokemon(){
-    numOfTurns++;
+    
 
     let poke1 = createRandomPoke();
     let poke2 = createRandomPoke();
@@ -47,12 +47,20 @@ export function setThreePokemon(){
     incrementSeen(poke3.id);
 
     const gameBoard = document.querySelector('.container');
-
+    setSpanContent(numOfTurns);
     gameBoard.textContent = '';
 
     gameBoard.append(pokeImg1, pokeImg2, pokeImg3);
+    numOfTurns++;
 }
 
+function setSpanContent(turns){
+    const span = document.getElementById('caught-span');
+    if(turns === 0 ){
+        span.textContent = 'You haven\'t caught any Pokemon yet!'; 
+     } else {
+     span.textContent = `PokeParty Members: ${turns}`;}
+}
 
 function renderPokeImage(pokeItem){
     const img = document.createElement('img');
@@ -60,12 +68,13 @@ function renderPokeImage(pokeItem){
 
     img.classList.add('poke-img');
     img.addEventListener('click', () => {
-        incrementCaught(pokeItem);
+        incrementCaught(pokeItem.id);
 
-        if (numOfTurns > 5){
+        if (numOfTurns < 10){
             setThreePokemon();
+          
         } else {
-            window.location = 'results';
+            window.location = '../result';
         }
     });
     return img;

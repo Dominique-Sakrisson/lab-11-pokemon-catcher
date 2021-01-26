@@ -54,10 +54,11 @@ export function incrementSeen(id){
     setPokeStats(stats);
 }
 
+
 export function incrementCaught(id){
     const stats = getPokeStats();
 
-    console.log(stats.id + 'id on lcick');
+    console.log(id + 'id on lcick');
     const poke = findById(id, stats)
     console.log(stats + 'onclick');
     console.log(poke);
