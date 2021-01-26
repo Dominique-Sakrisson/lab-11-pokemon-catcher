@@ -30,6 +30,12 @@ export function setThreePokemon(){
         poke3 = createRandomPoke();
     }
 
+    
+
+    const list = document.getElementById('poke-list');
+    const li = document.createElement('li');
+
+
     const pokeImg1 = renderPokeImage(poke1);
     const pokeImg2 = renderPokeImage(poke2);
     const pokeImg3 = renderPokeImage(poke3);
@@ -60,6 +66,10 @@ function setSpanContent(turns){
         span.textContent = 'You haven\'t caught any Pokemon yet!'; 
      } else {
      span.textContent = `PokeParty Members: ${turns}`;}
+}
+
+function clearLocal(){
+    localStorage.clear();
 }
 
 function renderPokeImage(pokeItem){
