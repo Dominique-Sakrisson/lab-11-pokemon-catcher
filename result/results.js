@@ -43,6 +43,22 @@ function addToTable(){
 }
 //call function to render table on Document
 addToTable();
+
+function setNameArray(){
+    for(let item of dataObj){
+        if(nameArrayObj.indexOf(item.name) === -1){
+            nameArrayObj.push(item.name);
+            console.log(item.name + ' added!');
+        }
+    }
+}
+
+function setHpArray(){
+    for(let item of dataObj){
+        hpArray.push(item.hp);
+    }
+}
+
 //save reference to canvas used for the chart
 var ctx = document.getElementById('caught-seen-chart').getContext('2d');
 //create chart on the canvas
@@ -90,15 +106,35 @@ var myChart = new Chart(ctx, {
 });
 //save reference to canvas for 2nd chart
 var ctx2 = document.getElementById('myChart2').getContext('2d');
+
+//grab our string returning from makeHpArray parse it to an object
+const dataObj = JSON.parse(makeHpArray(pokestats));
+//initialize two arrays that will be the labels and data for our graph
+const nameArrayObj = [];
+const hpArray =[];
+/*
+for(let item of dataObj){
+    if(nameArrayObj.indexOf(item.name) === -1){
+        nameArrayObj.push(item.name);
+        console.log(item.name + ' added!');
+    }
+}
+*/
+
+
+
+setNameArray();
+setHpArray();
 var myChart = new Chart(ctx2, {
+    
     type: 'bar',
     data: {
 
-        labels: makeNameArray(pokestats),
+        labels: nameArrayObj,
         datasets: [
             {
             label: 'Pokemon HP',
-            data: makeHpArray(pokestats),
+            data: hpArray,
             backgroundColor: 'rgba(255, 99, 132, 0.8)',
             borderColor: 'rgba(255, 99, 132, 1)',
             borderWidth: 1
@@ -123,7 +159,7 @@ var myChart = new Chart(ctx2, {
         }
     }
 });
- 
+ /*
 //save reference to canvas for 2nd chart
 var ctx3 = document.getElementById('myChart3').getContext('2d');
 var myChart = new Chart(ctx3, {
@@ -159,4 +195,4 @@ var myChart = new Chart(ctx3, {
         }
     }
 });
- 
+ */

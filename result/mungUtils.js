@@ -30,7 +30,7 @@ export function makeNameArray(arrayOfObjects){
 }
 
 //lets do some more munging on different set types of data!!
-export function makeHpArray(arrayOfObjects){
+export function makeHeightArray(arrayOfObjects){
     
     const hpArray = [];
     for (let i = 0; i <arrayOfObjects.length; i++){
@@ -51,7 +51,7 @@ export function makeWeightArray(arrayOfObjects){
 
     return weightArray.reverse();
 }
-export function makeHeightArray(arrayOfObjects){
+export function makeHpArray(arrayOfObjects){
     //initiate height array
     const heightArray = [];
 
@@ -64,24 +64,31 @@ export function makeHeightArray(arrayOfObjects){
         };
         orderObj.push(currentObj);
     }
-
-
     orderObj.sort((a,b) => (a.hp > b.hp) ? 1 : -1);
-    console.log(orderObj);
+  
+    //end up with an array of objects where each index has the matching hp and name
+    //sorted from lowest to highest by its hp
+    const sortedNames = [];
+
+    for(let i =0; i < orderObj.length; i++){
+        let currentName = orderObj[i].name;
+        sortedNames.push(currentName);
+    }
+
     //search through name array
     //if an element of name array matches heightArray[i]
     //return the index of that name in nameArray
     //make a new array where that name is the first index. and repeat
     const nameArray =  makeNameArray(arrayOfObjects);
-    const sortedNames= [];
+    
     
 
     for(let i=0; i < heightArray.length; i++){
       let elToAdd = orderObj[i].name;
-      console.log(elToAdd);
       sortedNames.push(elToAdd);
-    
     }
-    console.log('sorted names' + sortedNames + ' sorted hp' + orderObj.hp);
-    return heightArray.reverse();
+
+    const results = [sortedNames, orderObj];
+    //console.log('sorted names' + sortedNames + ' sorted hp' + orderObj[1].hp);
+    return JSON.stringify(orderObj);
 }
