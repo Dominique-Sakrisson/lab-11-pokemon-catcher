@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/result.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>PokeCatcher</title>
+</head>
+
+<body>
+    <header>
+        <div class="gutter-right logo">
+        <h1>
+            PokeCatcher
+        </h1>
+        <nav>
+            <ul>
+                <li class="nav"><a id="go-play" href="../index.html" >Go Play! <img class="poke-icon" src="../assets/pokeball.png"></a></li>
+                <li class="nav"><a href="./#">Trainer Stats! <img class="poke-icon" src="../assets/pokedex.png"></a></li>
+                <li class="nav"><a href="../allResults/index.html">All Stats! <img class="poke-icon" src="../assets/pokedex.png"></a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <table id="poke-list">
+        <tr>
+            <th>Name</th>
+            <th>Times Caught</th>
+            <th>Times seen</th>
+        </tr>
+    </table>
+
+    <main>
+        <p>You're quite the pokemon catcher</p>
+    </main>
+
+    <div id='result-tools'>
+   
+        <div class="">
+        	<p>Clear the list and play again</p>
+        	<button id="clear-button">Play Again</button>
+           
+        </div>
+    </div>
+
+    <div id="chart-container" style="width:80%">
+        <h1>Captures and Encounters</h1>
+        <canvas id="caught-seen-chart" ></canvas>
+        <h1>HP Low to High (Caught Poke's)</h1>
+        <canvas id="hp-chart"></canvas>
+        <h1>Height</h1>
+        <canvas id="height-chart"></canvas>
+        <h1>Weight</h1>
+        <canvas id="weight-chart"></canvas>
+    </div>
+
+
+    
+    <footer>
+        <div class="copy gutter-right">&copy; 2020 Alchemy Code Lab</div>
+    </footer>
+
+    <script type="module" src="results.js"></script>
+</body>
+
+</html>

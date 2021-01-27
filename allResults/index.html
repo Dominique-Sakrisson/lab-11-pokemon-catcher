@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/result.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>PokeCatcher</title>
+</head>
+
+<body>
+    <header>
+        <div class="gutter-right logo">
+        <h1>
+            PokeCatcher
+        </h1>
+        <nav>
+            <ul>
+                <li class="nav"><a id="go-play" href="../index.html" >Go Play! <img class="poke-icon" src="../assets/pokeball.png"></a></li>
+                <li class="nav"><a href="../result/index.html">Trainer Stats! <img class="poke-icon" src="../assets/pokedex.png"></a></li>
+                <li class="nav"><a href="./#">All Stats! <img class="poke-icon" src="../assets/pokedex.png"></a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    
+
+    <main>
+        <h2>This page displays the all time record of games played</h2>
+    </main>
+
+    <div id='result-tools'>
+   
+        <div class="instruction">
+        	<p>Click the nav bar <span class="play">'Go Play'</span>  or <span class="play">'Play again'</span> from 'Trainer Stats'</p>
+        </div>
+    </div>
+
+    <div id="chart-container" style="width:80%">
+        <h1>Captures and Encounters</h1>
+        <canvas id="caught-seen-chart" ></canvas>
+        <!--
+        <h1>HP Low to High (Caught Poke's)</h1>
+        <canvas id="hp-chart"></canvas>
+        <h1>Height</h1>
+        <canvas id="height-chart"></canvas>
+        <h1>Weight</h1>
+        <canvas id="weight-chart"></canvas>-->
+    </div>
+
+
+    
+    <footer>
+        <div class="copy gutter-right">&copy; 2020 Alchemy Code Lab</div>
+    </footer>
+
+    <script type="module" src="allResults.js"></script>
+</body>
+
+</html>

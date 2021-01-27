@@ -1,0 +1,21 @@
+.list-full{
+    background-color: rgba(160, 15, 20, .7);
+}
+
+.center{
+   text-align: center;
+}
+
+#clear-button {
+    width: 100px;
+    padding: 5px;
+}
+
+.instruction{
+    font-size: 1.2rem;
+}
+
+.play {
+    color: gold;
+    background-color: #000;
+}
