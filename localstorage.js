@@ -35,11 +35,12 @@ export function incrementSeen(id){
             id: id,
             seen: 1,
             caught: 0,
-            hp: currentPoke.hp
+            hp: currentPoke.hp,
+            height: currentPoke.height,
+            weight: currentPoke.weight,
         };
         stats.push(newStat);
     }
-    console.log(match+ 'match');
     setPokeStats(stats);
 }
 
