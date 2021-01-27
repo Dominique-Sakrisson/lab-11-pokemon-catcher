@@ -20,23 +20,26 @@ export function setPokeStats(obj){
 
 export function incrementSeen(id){
     const stats = getPokeStats();
+    console.log(stats);
     //is the id we passed already existant in local storage?
     const match = findById(id, stats);
+    
     //if this passes we've already seen it before
     if(match) {
        
         match.seen++;
     } else {
-        const summin = findById(id, pokemon);
+        const currentPoke = findById(id, pokemon);
         const newStat = {
-            name: summin.pokebase,
+            name: currentPoke.pokebase,
             id: id,
             seen: 1,
             caught: 0,
+            hp: currentPoke.hp
         };
         stats.push(newStat);
     }
-
+    console.log(match+ 'match');
     setPokeStats(stats);
 }
 

@@ -1,6 +1,6 @@
 import pokemon from '../pokemon.js';
 import {getPokeStats} from '../localstorage.js';
-import { makeSeenArray, makeCaughtArray, makeNameArray } from './mungUtils.js'; 
+import { makeSeenArray, makeCaughtArray, makeNameArray, makeHpArray } from './mungUtils.js'; 
 
 
 const pokestats = getPokeStats();
@@ -41,19 +41,14 @@ function addToTable(){
 
 }
 
-
-
 addToTable();
 
 console.log(makeSeenArray(pokestats));
 
 
-
-
-
 //commented out for this part of assignemnt
 
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('caught-seen-chart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -77,6 +72,7 @@ var myChart = new Chart(ctx, {
         ]
     },
     options: {
+        
         scales:  {
             yAxes: [{
                 ticks: {
@@ -90,6 +86,41 @@ var myChart = new Chart(ctx, {
                     beginAtZero: true,
                     stepSize: 1
 
+                }
+            }]
+        }
+    }
+});
+
+var ctx2 = document.getElementById('myChart2').getContext('2d');
+var myChart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+
+        labels: makeNameArray(pokestats),
+        datasets: [
+            {
+            label: 'Pokemon HP',
+            data: makeHpArray(pokestats),
+            backgroundColor: 'rgba(255, 99, 132, 0.8)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }
+        ]
+    },
+    options: {
+        scales:  {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 10,
+                    max: 100
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true,
+            
                 }
             }]
         }

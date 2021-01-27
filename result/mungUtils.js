@@ -29,3 +29,12 @@ export function makeNameArray(arrayOfObjects){
 }
 
 //lets do some more munging on different set types of data!!
+export function makeHpArray(arrayOfObjects){
+    
+    const hpArray = [];
+    for (let i = 0; i <arrayOfObjects.length; i++){
+        hpArray.push(arrayOfObjects[i].hp);
+    }
+    
+    return hpArray;
+}
