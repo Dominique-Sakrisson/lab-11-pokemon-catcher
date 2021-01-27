@@ -1,67 +1,20 @@
 import pokemon from '../pokemon.js';
-import {getPokeStats} from '../localstorage.js';
-import { makeSeenArray, makeCaughtArray, makeNameArray, makeHpArray, makeHeightArray, makeWeightArray } from './mungUtils.js'; 
+import {getPokeStatsAll} from '../localstorage.js';
+import { makeSeenArray, makeCaughtArray, makeNameArray, makeHpArray, makeHeightArray, makeWeightArray } from '../result/mungUtils.js'; 
 
-const PARTY = 'PARTY';
-//get global pokestats
-const pokestats = getPokeStats();
-//save reference to table node
-const table = document.getElementById('poke-list');
-//save reference for html link node
-const link = document.getElementById('go-play');
-link.addEventListener('click', () =>{
-    localStorage.removeItem(PARTY);
-});
+const LISTS = 'LISTS';
+const pokestats = getPokeStatsAll();
 
-//make a button, when pressed clears local storage
-const clearButton = document.getElementById('clear-button');
-//add event listener to the button
-clearButton.addEventListener('click', () => {
-    localStorage.removeItem(PARTY);
-    window.location = '../index.html';
-});
-//structure a table row, add data to it, append row to table
-function addToTable(){
-    const nameArray= [];
- 
-    for(let i = 0; i < pokestats.length; i++){
-        let tr = document.createElement('tr');
-        const tdName = document.createElement('td');
-        const tdSeen = document.createElement('td'); 
-        const tdCaught = document.createElement('td');
-       
-            
-        tdName.textContent = pokestats[i].name;
-        tdCaught.textContent = pokestats[i].caught;
-        tdSeen.textContent = pokestats[i].seen;
-        tr.append(tdName, tdCaught, tdSeen);
-        tdSeen.classList.add('center');
-        tdCaught.classList.add('center');
-        
-        table.append(tr);
-    }
+for(let items of LISTS){
+    let nameArray = items.name;
+    let id = items.id;
+    let seen = items.seen;
+    let caught = items.caught;
+    let hp = items.hp;
+    let height = items.height;
+    let weight = items.weight;
 
-}
-//call function to render table on Document
-addToTable();
-
-function setNameArray(){
-    const nameArrayObj = [];
-    for(let item of dataObj){
-        if(nameArrayObj.indexOf(item.name) === -1){
-            nameArrayObj.push(item.name);
-            console.log(item.name + ' added!');
-        }
-    }
-    return nameArrayObj;
-}
-
-function setHpArray(){
-    const hpArray =[];
-    for(let item of dataObj){
-        hpArray.push(item.hp);
-    }
-    return hpArray;
+    console.log(nameArray);
 }
 
 //save reference to canvas used for the chart
@@ -96,7 +49,7 @@ var encounterChart = new Chart(ctx, {
                 ticks: {
                     beginAtZero: true,
                     stepSize: 1,
-                    max: 10
+                    max: 20
                 }
             }],
             xAxes: [{
@@ -110,6 +63,7 @@ var encounterChart = new Chart(ctx, {
     }
 });
 
+/*
 //save reference to canvas for 2nd chart
 var ctx2 = document.getElementById('hp-chart').getContext('2d');
 //grab our string returning from makeHpArray parse it to an object
@@ -227,3 +181,4 @@ var heightChart = new Chart(ctx, {
         }
     }
 });
+*/

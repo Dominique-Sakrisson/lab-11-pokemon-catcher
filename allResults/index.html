@@ -22,43 +22,36 @@
         <nav>
             <ul>
                 <li class="nav"><a id="go-play" href="../index.html" >Go Play! <img class="poke-icon" src="../assets/pokeball.png"></a></li>
-                <li class="nav"><a href="./#">Trainer Stats! <img class="poke-icon" src="../assets/pokedex.png"></a></li>
-                <li class="nav"><a href="../allResults/index.html">All Stats! <img class="poke-icon" src="../assets/pokedex.png"></a></li>
+                <li class="nav"><a href="../result/index.html">Trainer Stats! <img class="poke-icon" src="../assets/pokedex.png"></a></li>
+                <li class="nav"><a href="./#">All Stats! <img class="poke-icon" src="../assets/pokedex.png"></a></li>
             </ul>
         </nav>
         
     </header>
 
-    <table id="poke-list">
-        <tr>
-            <th>Name</th>
-            <th>Times Caught</th>
-            <th>Times seen</th>
-        </tr>
-    </table>
+    
 
     <main>
-        <p>You're quite the pokemon catcher</p>
+        <h2>This page displays the all time record of games played</h2>
     </main>
 
     <div id='result-tools'>
    
-        <div class="">
-        	<p>Clear the list and play again</p>
-        	<button id="clear-button">Play Again</button>
-           
+        <div class="instruction">
+        	<p>Click the nav bar <span class="play">'Go Play'</span>  or <span class="play">'Play again'</span> from 'Trainer Stats'</p>
         </div>
     </div>
 
     <div id="chart-container" style="width:80%">
         <h1>Captures and Encounters</h1>
         <canvas id="caught-seen-chart" ></canvas>
+        <!--
         <h1>HP Low to High (Caught Poke's)</h1>
         <canvas id="hp-chart"></canvas>
         <h1>Height</h1>
         <canvas id="height-chart"></canvas>
         <h1>Weight</h1>
-        <canvas id="weight-chart"></canvas>
+        <canvas id="weight-chart"></canvas>-->
     </div>
 
 
@@ -67,7 +60,7 @@
         <div class="copy gutter-right">&copy; 2020 Alchemy Code Lab</div>
     </footer>
 
-    <script type="module" src="results.js"></script>
+    <script type="module" src="allResults.js"></script>
 </body>
 
 </html>

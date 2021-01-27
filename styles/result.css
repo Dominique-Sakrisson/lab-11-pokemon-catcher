@@ -10,3 +10,12 @@
     width: 100px;
     padding: 5px;
 }
+
+.instruction{
+    font-size: 1.2rem;
+}
+
+.play {
+    color: gold;
+    background-color: #000;
+}

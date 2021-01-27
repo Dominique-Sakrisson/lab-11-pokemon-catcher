@@ -1,4 +1,4 @@
-import { incrementSeen, incrementCaught,  } from './localstorage.js';
+import { incrementSeen, incrementCaught, getPokeStats  } from './localstorage.js';
 import pokemon from './pokemon.js';
 
 export function findById(id, array){
@@ -66,6 +66,7 @@ function clearLocal(){
     localStorage.clear();
 }
 
+const LISTS = 'LISTS';
 function renderPokeImage(pokeItem){
     const img = document.createElement('img');
     img.src = pokeItem.url_image;
@@ -76,6 +77,8 @@ function renderPokeImage(pokeItem){
 
         if (numOfTurns < 10){
             setThreePokemon();
+            const stats = JSON.stringify(getPokeStats());
+            localStorage.setItem(LISTS, stats);
           
         } else {
             window.location = './result/index.html';

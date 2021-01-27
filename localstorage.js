@@ -2,6 +2,7 @@ import pokemon from './pokemon.js';
 import {findById} from './utils.js';
 
 const PARTY = 'PARTY';
+const LISTS = 'LISTS';
 const emptyParty = [];
 
 export function getPokeStats(){
@@ -14,6 +15,15 @@ export function getPokeStats(){
     return stats;
 }
 
+export function getPokeStatsAll(){
+    let stats = JSON.parse(localStorage.getItem(LISTS));
+    if(!stats){
+        localStorage.setItem(LISTS, JSON.stringify(emptyParty));
+        console.log('Initialized empty party array.');
+        stats = emptyParty;
+    }
+    return stats;
+}
 export function setPokeStats(obj){
     localStorage.setItem(PARTY, JSON.stringify(obj));
 }
